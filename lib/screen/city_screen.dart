@@ -13,9 +13,19 @@ class _CityScreenState extends State<CityScreen> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/city_background.jpg'),
-            fit: BoxFit.cover,
+          // image: DecorationImage(
+          //   image: AssetImage('images/city_background.jpg'),
+          //   fit: BoxFit.cover,
+          // ),
+          gradient: LinearGradient(
+              colors: [
+                const Color(0xFFec9232),
+                const Color(0xFFF5DDA4),
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(0.0, 1.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp
           ),
         ),
         constraints: BoxConstraints.expand(),

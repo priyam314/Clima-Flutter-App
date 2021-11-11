@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 
 const kTempTextStyle = TextStyle(
-  fontFamily: 'Spartan MB',
+  fontFamily: 'Fantasy',
   fontSize: 100.0,
+  color: Color(0xFF121211),
+  shadows: <Shadow>[
+    Shadow(
+      offset: Offset(2.5, 2.5),
+      blurRadius: 5.0,
+      color: Color.fromARGB(255, 119,136,153),
+    ),
+  ],
 );
 
 const kMessageTextStyle = TextStyle(
-  fontFamily: 'Spartan MB',
+  fontFamily: 'Monospace',
   fontSize: 60.0,
+  color: Color(0xFF121211),
+  shadows: <Shadow>[
+    Shadow(
+      offset: Offset(2.5, 2.5),
+      blurRadius: 5.0,
+      color: Color.fromARGB(255, 119,136,153),
+    ),
+  ],
 );
 
 const kButtonTextStyle = TextStyle(
@@ -17,6 +33,14 @@ const kButtonTextStyle = TextStyle(
 
 const kConditionTextStyle = TextStyle(
   fontSize: 100.0,
+  color:Color(0xFF121211),
+  shadows: <Shadow>[
+    Shadow(
+      offset: Offset(2.5, 2.5),
+      blurRadius: 5.0,
+      color: Color.fromARGB(255, 119,136,153),
+    ),
+  ],
 );
 
 const kTextFieldInputDecoration = InputDecoration(

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:clima/screen/location_screen.dart';
 import 'package:flutter/material.dart';
 import 'location_screen.dart';
@@ -9,28 +11,49 @@ class LoadingScreen extends StatefulWidget {
   _LoadingScreenState createState() => _LoadingScreenState();
 }
 class _LoadingScreenState extends State<LoadingScreen> {
+  var weatherData;
   @override
   void initState(){
     super.initState();
     _getLocationData();
+    Timer(
+      Duration(seconds: 4),
+      () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LocationScreen(
+          locationWeather: weatherData,
+        ),
+        ),
+      ),
+    );
   }
   void _getLocationData() async {
-    var weatherData = await WeatherModel().getLocationWeather();
-    Navigator.push(context, MaterialPageRoute(builder: (context){
-      return LocationScreen(
-        locationWeather: weatherData,
-      );
-    }));
+    weatherData = await WeatherModel().getLocationWeather();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SpinKitCubeGrid(
-          color: Colors.white,
-          size: 90.0,
-        ),
+      backgroundColor: Color(0xFFF9FDFF),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Text(
+            'WEATHER APP',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Center(
+            child: SpinKitCubeGrid(
+              color: Color(0xFF101010),
+              size: 90.0,
+            ),
+          ),
+          Text(
+            'by @Priyam_Garg'
+          ),
+        ],
       ),
     );
   }
